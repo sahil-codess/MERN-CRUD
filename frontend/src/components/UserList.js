@@ -46,7 +46,7 @@ const UserList = () => {
                                         <td>
                                             <Link to={`/edit/${user._id}`} className='button is-info is-small '>Edit</Link>
                                         </td>
-                                        <td><Link className='button is-danger is-small'>Delete</Link></td>
+                                        <td><button className='button is-danger is-small'>Delete</button></td>
                                     </tr>
                                 )
                             })
