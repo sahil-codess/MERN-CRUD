@@ -44,9 +44,9 @@ const UserList = () => {
                                         <td>{user.phoneNumber}</td>
                                         <td>{user.gender}</td>
                                         <td>
-                                            <button className='button is-info is-small '>Edit</button>
+                                            <Link to={`/edit/${user._id}`} className='button is-info is-small '>Edit</Link>
                                         </td>
-                                        <td><button className='button is-danger is-small'>Delete</button></td>
+                                        <td><Link className='button is-danger is-small'>Delete</Link></td>
                                     </tr>
                                 )
                             })
