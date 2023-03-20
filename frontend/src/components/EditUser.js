@@ -8,7 +8,6 @@ const EditUser = () => {
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [gender, setGender] = useState("Female");
-    console.log(name, email, phoneNumber, gender)
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -28,10 +27,25 @@ const EditUser = () => {
         getUser()
     }, [])
 
+    const updateUser = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.patch(`http://localhost:5000/users/${id}`, {
+                name,
+                email,
+                phoneNumber,
+                gender
+            })
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <div>
             <div className="column is-half">
-                <form >
+                <form onSubmit={updateUser} >
                     <div className="field">
                         <label className="label">Name</label>
                         <div className="control">
