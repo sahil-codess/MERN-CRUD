@@ -12,4 +12,7 @@ const db = mongoose.connection;
 db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("Database connected!"))
 
+app.use(cors());
+app.use(express.json());
+
 app.listen(5000, () => console.log('Back-end server started at port 5000'))
