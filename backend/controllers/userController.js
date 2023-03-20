@@ -36,3 +36,27 @@ export const getUserById = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+
+export const updateUser = async (req, res) => {
+    try {
+        const updateUser = await User.updateOne({ _id: req.params.id }, { $set: req.body });
+        res.status(200).json({
+            status: "success",
+            data: updateUser
+        })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
+export const deleteUser = async (req, res) => {
+    try {
+        const deleteUser = await User.deleteOne({ _id: req.params.id });
+        res.status(200).json({
+            status: "success",
+            data: deleteUser
+        })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
